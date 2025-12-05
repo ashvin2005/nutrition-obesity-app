@@ -10,7 +10,8 @@ function App() {
   const handlePrediction = async (nutritionData) => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/api/predict', {
+      const API_URL = process.env.REACT_APP_API_URL || 'https://nutrition-obesity-backend.onrender.com';
+      const response = await fetch(`${API_URL}/api/predict`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json'
